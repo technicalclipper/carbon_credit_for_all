@@ -4,7 +4,9 @@ import treeRoute from "./routes/treesRoute.js"
 import session from "express-session"
 import passport from "./utils/passport.js";
 import cors from "cors"
-import { calculateCarbonSequestration} from "./controller/sequestration.js";
+
+
+
 
 const app=express();
 app.use(express.json());

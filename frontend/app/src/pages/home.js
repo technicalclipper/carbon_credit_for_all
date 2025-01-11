@@ -5,7 +5,6 @@ import '../signin.css'
 function Home(){
     return(
         <div>
-        <Header />
         <div className="right-panel">
             <div className="content">
                 <h1>Plant a Tree today!</h1>

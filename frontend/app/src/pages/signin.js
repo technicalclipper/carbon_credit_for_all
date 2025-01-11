@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "../signin.css";
+import { AuthContext } from "../contexts/authContext";
+import { useContext } from "react";
 
 function Signin() {
+  const { isAuthenticated,user,signup,login,logout } = useContext(AuthContext);
+  console.log("the user is",user);
   const [inputs, setInputs] = useState({});
   const handleChange = (event) => {
     const name = event.target.name;
@@ -19,27 +23,27 @@ function Signin() {
         <h1 className="logo-text">Platform for Personal Carbon Credits.</h1>
       </div>
       <div className="right-panel">
-        <form className="form">
+        <div className="form">
           <h2>sign in</h2>
-          <label htmlFor="username">Name</label>
+          <div htmlFor="username">Name</div>
           <input
             name="username"
             type="text"
             value={inputs.username || ""}
             onChange={handleChange}
           />
-          <label htmlFor="password">Password</label>
+          <div htmlFor="password">Password</div>
           <input
             name="password"
             type="password"
             value={inputs.password || ""}
             onChange={handleChange}
           ></input>
-          <button type="submit" className="submit-button">
+          <button  className="submit-button" onClick={()=>{login(inputs.username,inputs.password)}}>
             Sign In
           </button>
           <p> Don't have an account? <a >Sign Up!</a></p>
-        </form>
+        </div>
         <p>{}</p>
       </div>
     </div>
