@@ -16,7 +16,7 @@ function Signin() {
     <div className="container">
       <div className="left-panel">
         <div className="logo">🌴</div>
-        <h1>Platform for Personal Carbon Credits.</h1>
+        <h1 className="logo-text">Platform for Personal Carbon Credits.</h1>
       </div>
       <div className="right-panel">
         <form className="form">
@@ -38,6 +38,7 @@ function Signin() {
           <button type="submit" className="submit-button">
             Sign In
           </button>
+          <p> Don't have an account? <a >Sign Up!</a></p>
         </form>
         <p>{}</p>
       </div>

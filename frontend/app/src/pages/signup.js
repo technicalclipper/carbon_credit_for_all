@@ -16,11 +16,11 @@ function Signup() {
     <div className="container">
       <div className="left-panel">
         <div className="logo">🌴</div>
-        <h1>Platform for Personal Carbon Credits.</h1>
+        <h1 className="logo-text">Platform for Personal Carbon Credits.</h1>
       </div>
       <div className="right-panel">
         <form className="form">
-          <h1>sign up</h1>
+          <h2>sign up</h2>
           <label htmlFor="username">Name:</label>
           <input
             name="username"
@@ -47,6 +47,7 @@ function Signup() {
           <button type="submit" className="submit-button">
             Sign Up
           </button>
+          <p>Already a user?<a>Sign In!</a></p>
         </form>
       </div>
     </div>
