@@ -21,14 +21,14 @@ function Signin() {
       <div className="right-panel">
         <form className="form">
           <h2>sign in</h2>
-          <label htmlFor="username">Name:</label>
+          <label htmlFor="username">Name</label>
           <input
             name="username"
             type="text"
             value={inputs.username || ""}
             onChange={handleChange}
           />
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password</label>
           <input
             name="password"
             type="password"
