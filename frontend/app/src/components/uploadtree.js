@@ -4,6 +4,9 @@ import imageCompression from "browser-image-compression";
 import "../App.css";
 import { predictSpecies } from "../hooks/hooks";
 import { api1 } from "../services/api";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 export default function TreeUploader() {
     const [image, setImage] = useState(null);
@@ -103,6 +106,10 @@ export default function TreeUploader() {
             const response = await api1.post("/tree/uploadtree", treeData);
             alert("Data submitted successfully!");
             console.log("Server Response:", response.data);
+            const{points}=response.data;
+            const earnedpoints=points.earned;
+            const co2=points.earned/100;
+            toast.success(`Total Points Earned: ${earnedpoints}, Total CO2 Sequestrated: ${co2} kg`);
         } catch (error) {
             console.error("Error submitting data:", error);
             alert("Failed to submit data!");
@@ -207,7 +214,9 @@ export default function TreeUploader() {
                         Submit Data
                     </button>
                 </div>
+
             )}
+            <ToastContainer />
         </div>
     );
 }

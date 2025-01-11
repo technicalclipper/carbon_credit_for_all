@@ -5,28 +5,44 @@ import { useNavigate } from "react-router-dom";
 import Treecard from "../components/treecard";
 import { predictSpecies } from "../hooks/hooks";
 import TreeUploader from "../components/uploadtree";
-export default function Tree(){
-    
 
-    return(
-    <div>
-        <div className="plantadd">
-            <div>Myplants</div>
-            <div onClick={()=>{}} className="plantaddbutton">+Add</div>
-        </div>
+export default function Tree() {
+    const [showUploader, setShowUploader] = useState(false);  // State to control the visibility of TreeUploader
 
-        <div className="outercon">
-            
-            <div className="innercon">
-                <div className="garden">Your garden🏡 | chennai</div>
-                <div className="treecon">
-                    <Treecard/>
-                    <Treecard/>
-                    <Treecard/>
+    const handleAddClick = () => {
+        setShowUploader(true);  // Show the TreeUploader when "+Add" is clicked
+    };
+
+    const handleCloseUploader = () => {
+        setShowUploader(false);  // Hide the TreeUploader
+    };
+
+    return (
+        <div>
+            <div className="plantadd">
+                <div>Myplants</div>
+                <div onClick={handleAddClick} className="plantaddbutton">+Add</div>
+            </div>
+
+            {showUploader && (
+                <div className="popup-overlay">
+                    <div className="popup-content">
+                        <TreeUploader />
+                        <button onClick={handleCloseUploader} className="close-button">Close</button>
+                    </div>
+                </div>
+            )}
+
+            <div className="outercon">
+                <div className="innercon">
+                    <div className="garden">Your garden🏡 | Chennai</div>
+                    <div className="treecon">
+                        <Treecard />
+                        <Treecard />
+                        <Treecard />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    )
+    );
 }
-
