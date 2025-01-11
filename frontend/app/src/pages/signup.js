@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-<<<<<<< HEAD
 import "../signin.css";
 import { AuthContext } from "../contexts/authContext";
 import { useContext } from "react";
-=======
->>>>>>> a919ff8f3d18bf4d9ac997bf58769d032bd76507
 
 function Signup() {
   const { isAuthenticated,user,signup,login,logout } = useContext(AuthContext);

@@ -1,29 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "../components/header";
 import HomePost from "../components/homepost";
 
-<<<<<<< HEAD
-function Home(){
-    return(
-        <div>
-        <div className="right-panel">
-            <div className="content">
-                <h1>Plant a Tree today!</h1>
-                <p>
-                "Planting a tree today is a step toward a better future. Trees clean the air, combat climate change, and create habitats for wildlife. They stand as symbols of hope, offering beauty and shade while fostering life for generations to come."
-                </p>
-            </div>
-            <div className="content">
-                <h1>About Us!</h1>
-                <p>"We are a platform that turns tree planting into an exciting and rewarding experience. By gamifying environmental action, we let users earn points for every tree planted, which can later be converted into carbon credits. Together, we make sustainability fun, impactful, and rewarding for everyone!"</p>
-            </div>
-=======
 function Home() {
+  const posts = [
+    { username: "Niki", uid: "nk124345", desc: "Planted this tree today!" },
+    { username: "John", uid: "jn456789", desc: "Started a garden!" },
+    { username: "Emma", uid: "em789101", desc: "Planted a fruit tree!" },
+  ];
+
   return (
-    <div>
+    <>
       <Header />
-      <div className="home-container">
-      <div className="home-left">
+      <div className="right-panel">
         <div className="content">
           <h1>Plant a Tree today!</h1>
           <p>
@@ -32,7 +21,6 @@ function Home() {
             They stand as symbols of hope, offering beauty and shade while
             fostering life for generations to come."
           </p>
->>>>>>> a919ff8f3d18bf4d9ac997bf58769d032bd76507
         </div>
         <div className="content">
           <h1>About Us!</h1>
@@ -48,25 +36,17 @@ function Home() {
       <div className="home-right">
         <h2>Posts</h2>
         <div className="Post-container">
-        <HomePost
-          username="Niki"
-          uid="nk124345"
-          desc="Planted this tree today!"
-        />
-        <HomePost
-          username="Niki"
-          uid="nk124345"
-          desc="Planted this tree today!"
-        />
-        <HomePost
-          username="Niki"
-          uid="nk124345"
-          desc="Planted this tree today!"
-        />
+          {posts.map((post, index) => (
+            <HomePost
+              key={index}
+              username={post.username}
+              uid={post.uid}
+              desc={post.desc}
+            />
+          ))}
         </div>
       </div>
-      </div>
-    </div>
+    </>
   );
 }
 
