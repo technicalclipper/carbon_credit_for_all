@@ -10,18 +10,24 @@ function Signup(){
       {console.log(name)}
     }
     return(
-      <div className="register">
+      <div className="container">
+            <div className="left-panel">
+            <div className="logo">
+                🌴
+            </div>
+            <h1>Platform for Personal Carbon Credits.</h1>
+            </div> 
+      <div className="right-panel">
           <h1 >sign up</h1>
-          <form>
-            <label>Name:
-              <input 
-                name='username' 
-                type='text' 
-                value={inputs.username || ""} 
-                onChange={handleChange}
-              ></input>
-            </label>
-            <label>Email:
+          <form className="form">
+                <label htmlFor="username">Name:</label>
+                <input 
+                    name='username' 
+                    type='text' 
+                    value={inputs.username || ""} 
+                    onChange={handleChange}
+                />
+            <label htmlFor="Email">Email:
               <input 
                 name='Email' 
                 type='text' 
@@ -29,18 +35,17 @@ function Signup(){
                 onChange={handleChange}
               ></input>
             </label>
-            <label>Password:
+            <label htmlFor="password">Password:</label> 
               <input 
                 name='password' 
                 type='password' 
                 value={inputs.password || ""} 
                 onChange={handleChange}
               ></input>
-              <button type='submit'>Sign Up</button>
-            </label>          
+              <button type='submit' className="submit-button">Sign Up</button>       
           </form>
-          <p>{}</p>
         </div>
+      </div>
         
     )
   }
