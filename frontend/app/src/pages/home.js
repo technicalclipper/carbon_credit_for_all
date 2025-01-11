@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Header from "../components/header";
 import HomePost from "../components/homepost";
-import "../signin.css";
 
 function Home() {
   return (

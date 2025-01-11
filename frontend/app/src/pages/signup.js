@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import "../signin.css";
 
 function Signup() {
   const [inputs, setInputs] = useState({});
