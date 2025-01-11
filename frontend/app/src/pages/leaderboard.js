@@ -1,7 +1,11 @@
-import React from "react";
+
 import Header from "../components/header";
+import { AuthContext } from "../contexts/authContext";
+import React, { useState,useContext} from "react";
+
 
 function Leaderboard() {
+    const { isAuthenticated, user, logout } = useContext(AuthContext);
   const leaderboardData = [
     { rank: "#1", name: "Akash Keith", points: "2310", place: "🏆" },
     { rank: "#2", name: "Kristen Nikhil", points: "1605", place: "🥈" },
@@ -17,7 +21,6 @@ function Leaderboard() {
 
   return (
     <div>
-      <Header />
       <div className="leaderboard-container">
         <div className="user-card">
           <div className="profile-pic"></div>
@@ -25,15 +28,15 @@ function Leaderboard() {
           <p className="rank" id="myrank">
             RANK: #41
           </p>
-          <p className="points">Total Points: 148</p>
+          <p className="points">Total Points: {user.points}</p>
           <div className="stats-container">
             <h3 className="stats-title">STATS:</h3>
             <div className="stats">
               <ul>
                 <li>Total No. Of Trees: 12</li>
                 <li>Total Posts: 132</li>
-                <li>Coins Earned: 480</li>
-                <li>Credits Earned: 27.08</li>
+                <li>Coins Earned: {user.points}</li>
+                <li>Credits Earned: {user.credits}</li>
                 <li>Carbon Sequestration</li>
               </ul>
             </div>

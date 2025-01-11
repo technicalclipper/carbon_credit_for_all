@@ -25,10 +25,10 @@ function Header() {
         <img src="images/tree.png" alt="My Plants" />
         <p>MyPlants</p>
       </div>
-      <div className="navbar-component">
+      <Link to="/leaderboard"><div className="navbar-component">
         <img src="images/trophy.png" alt="Leaderboard" />
         <p>Leaderboard</p>
-      </div>
+      </div></Link>
       <div className="navbar-component">
         <img src="images/sun.png" alt="Marketplace" />
         <p>Marketplace</p>

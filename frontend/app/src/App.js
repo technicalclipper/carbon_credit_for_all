@@ -6,6 +6,8 @@ import Header from "./components/header.js";
 import Home from "./pages/home.js";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AuthProvider } from "./contexts/authContext";
+import Leaderboard from "./pages/leaderboard.js";
+import Bgimage from "./components/bg.js";
 
 function App() {
   const location = useLocation(); // Get the current route path
@@ -13,6 +15,7 @@ function App() {
 
   return (
     <>
+      
       <AuthProvider>
         {/* Render the Header only if the current route is not in hideHeaderRoutes */}
         {!hideHeaderRoutes.includes(location.pathname) && <Header />}
@@ -20,8 +23,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Signin />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
         </Routes>
       </AuthProvider>
+     
     </>
   );
 }

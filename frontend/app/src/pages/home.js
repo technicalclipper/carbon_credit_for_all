@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useState,useContext} from "react";
 import Header from "../components/header";
 import HomePost from "../components/homepost";
+import { AuthContext } from "../contexts/authContext";
+import Bgimage from "../components/bg";
 
 function Home() {
-  const posts = [
-    { username: "Niki", uid: "nk124345", desc: "Planted this tree today!" },
-    { username: "John", uid: "jn456789", desc: "Started a garden!" },
-    { username: "Emma", uid: "em789101", desc: "Planted a fruit tree!" },
-  ];
-
+  const { isAuthenticated, user, logout } = useContext(AuthContext);
   return (
-    <>
-      <Header />
-      <div className="right-panel">
+    <div>
+      <div className="home-container">
+      <div className="home-left">
+      {isAuthenticated && (
+  <div className="uname">👋hello {user?.fullname}!</div>)}
+
         <div className="content">
           <h1>Plant a Tree today!</h1>
           <p>
@@ -34,19 +34,27 @@ function Home() {
         </div>
       </div>
       <div className="home-right">
-        <h2>Posts</h2>
+        <h2 id="posthead">Posts</h2>
         <div className="Post-container">
-          {posts.map((post, index) => (
-            <HomePost
-              key={index}
-              username={post.username}
-              uid={post.uid}
-              desc={post.desc}
-            />
-          ))}
+        <HomePost
+          username="Niki"
+          uid="nk124345"
+          desc="Planted this tree today!"
+        />
+        <HomePost
+          username="Niki"
+          uid="nk124345"
+          desc="Planted this tree today!"
+        />
+        <HomePost
+          username="Niki"
+          uid="nk124345"
+          desc="Planted this tree today!"
+        />
         </div>
       </div>
-    </>
+      </div>
+    </div>
   );
 }
 
