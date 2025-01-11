@@ -2,12 +2,15 @@ import React,{useState} from 'react';
 import ReactDOM from 'react-dom'
 import './App.css';
 import Signup from './pages/signup.js'
+import { Route,Routes } from 'react-router-dom';
 
 
 function App() {
   return (
     <>
-      <Signup / >
+      <Routes>
+        <Route path="/signup" element={<Signup/>}/>
+      </Routes>
     </>
   );
 }
