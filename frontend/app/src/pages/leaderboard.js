@@ -1,11 +1,11 @@
-
 import Header from "../components/header";
 import { AuthContext } from "../contexts/authContext";
-import React, { useState,useContext} from "react";
-
+import React, { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Leaderboard() {
-    const { isAuthenticated, user, logout } = useContext(AuthContext);
+  const { isAuthenticated, user, loading, signup, login, logout } = useContext(AuthContext);
+  
   const leaderboardData = [
     { rank: "#1", name: "Akash Keith", points: "2310", place: "🏆" },
     { rank: "#2", name: "Kristen Nikhil", points: "1605", place: "🥈" },
@@ -18,6 +18,25 @@ function Leaderboard() {
     { rank: "#9", name: "Anush", points: "478", place: "🌟" },
     { rank: "#10", name: "Karan Sky", points: "486", place: "🌟" },
   ];
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (loading) return;
+
+    if (!isAuthenticated) {
+      navigate("/"); 
+    }
+  }, [isAuthenticated, loading, navigate]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  // Add conditional check for `user`
+  if (!user) {
+    return <div>Loading user data...</div>;
+  }
 
   return (
     <div>

@@ -510,3 +510,8 @@ div.card{
     justify-content: center; /* Center content vertically */
     z-index: -1;
   }
+  .popbutton{
+    all:unset;
+    background-color: black;
+    color:white;
+  }

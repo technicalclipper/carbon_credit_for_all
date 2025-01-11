@@ -17,10 +17,11 @@ function Header() {
 
   return (
     <div className="navbar">
-      <div className="navbar-component">
+      
+      <Link to="/"><div className="navbar-component">
         <img src="images/home.png" alt="Home" />
         <p>Home</p>
-      </div>
+      </div></Link>
       <div className="navbar-component">
         <img src="images/tree.png" alt="My Plants" />
         <p>MyPlants</p>
