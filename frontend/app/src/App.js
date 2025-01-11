@@ -8,6 +8,8 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { AuthProvider } from "./contexts/authContext";
 import Leaderboard from "./pages/leaderboard.js";
 import Bgimage from "./components/bg.js";
+import Tree from "./pages/tree.js";
+import TreeUploader from "./components/uploadtree.js";
 
 function App() {
   const location = useLocation(); // Get the current route path
@@ -24,6 +26,10 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Signin />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/tree" element={<Tree />} />
+          <Route path="/uploadtree" element={<TreeUploader />} />
+          
+
         </Routes>
       </AuthProvider>
      

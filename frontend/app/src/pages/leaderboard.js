@@ -43,7 +43,7 @@ function Leaderboard() {
       <div className="leaderboard-container">
         <div className="user-card">
           <div className="profile-pic"></div>
-          <h2 className="username">Sneha</h2>
+          <h2 className="username">{user.fullname}</h2>
           <p className="rank" id="myrank">
             RANK: #41
           </p>

@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from model import load_model, predict_species, get_label_names
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Load the model and labels once at startup
 model = load_model()
