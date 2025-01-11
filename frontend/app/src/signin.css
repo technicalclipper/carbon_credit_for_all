@@ -114,3 +114,36 @@ body {
   .form a:hover {
     text-decoration: underline;
   }
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #d2a377; 
+    padding: 0rem;
+    border-radius: 30px; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+    margin: 2rem auto;
+    width: 80%;
+    max-width: 1200px;
+  }
+  
+  .navbar-component {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "Pixelify Sans", sans-serif; 
+    font-size: 1.2rem;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .navbar-component img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .navbar-component:hover {
+    transform: scale(1.3);
+    transition: transform 0.2s ease-in-out;
+}

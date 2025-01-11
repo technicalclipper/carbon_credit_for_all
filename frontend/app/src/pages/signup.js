@@ -21,7 +21,7 @@ function Signup() {
       <div className="right-panel">
         <form className="form">
           <h2>sign up</h2>
-          <label htmlFor="username">Name:</label>
+          <label htmlFor="username">Name</label>
           <input
             name="username"
             type="text"
@@ -29,7 +29,7 @@ function Signup() {
             onChange={handleChange}
           />
           <label htmlFor="Email">
-            Email:
+            Email
             <input
               name="Email"
               type="text"
@@ -37,7 +37,7 @@ function Signup() {
               onChange={handleChange}
             ></input>
           </label>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password</label>
           <input
             name="password"
             type="password"
