@@ -654,6 +654,10 @@ textarea {
   width: 60%;
   max-width: 600px;
   max-height: 80%; /* Limit the height of the popup */
+  display: flex; /* Enable flexbox for the content */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
   overflow-y: auto; /* Enable scrolling inside the popup if content overflows */
 }
 
@@ -670,3 +674,78 @@ textarea {
 .close-button:hover {
   background: #ff1a1a;
 }
+
+
+.popover-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%; /* Increased width to 70% */
+  max-width: 500px; /* Increased max-width to 500px */
+  height: auto;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.popover-content {
+  width: 100%;
+  text-align: center;
+  max-height: 70vh; /* Keeps the max height of the content the same */
+  overflow-y: auto; /* Make the content scrollable if it overflows */
+  padding-bottom: 20px; /* Ensure there is space for the close button */
+}
+
+.wolfram-image {
+  margin-top: 20px;
+  max-width: 100%;
+  max-height: 200px; 
+  object-fit: contain; 
+}
+
+.species-image {
+  width: 100%; 
+  height: auto; 
+}
+
+.pclose-button {
+  position: absolute;
+  left:400px;
+  bottom: 280px; 
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 20%;
+}
+
+.pclose-button:hover {
+  background-color: black;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.popybutton{
+  background-color: green;
+  color: white;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+
+
+
+

@@ -7,14 +7,15 @@ import { predictSpecies } from "../hooks/hooks";
 import TreeUploader from "../components/uploadtree";
 
 export default function Tree() {
-    const [showUploader, setShowUploader] = useState(false);  // State to control the visibility of TreeUploader
+    const [showUploader, setShowUploader] = useState(false);  
+    const [trees,setTress]=useState([]);
 
     const handleAddClick = () => {
-        setShowUploader(true);  // Show the TreeUploader when "+Add" is clicked
+        setShowUploader(true);  
     };
 
     const handleCloseUploader = () => {
-        setShowUploader(false);  // Hide the TreeUploader
+        setShowUploader(false);  
     };
 
     return (
@@ -26,11 +27,14 @@ export default function Tree() {
 
             {showUploader && (
                 <div className="popup-overlay">
-                    <div className="popup-content">
-                        <TreeUploader />
-                        <button onClick={handleCloseUploader} className="close-button">Close</button>
-                    </div>
+                <div className="popup-content">
+                  <TreeUploader />
+                  <button className="close-button" onClick={handleCloseUploader}>
+                    Close
+                  </button>
                 </div>
+              </div>
+              
             )}
 
             <div className="outercon">

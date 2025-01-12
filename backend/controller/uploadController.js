@@ -48,3 +48,29 @@ export const uploadtree = async (req, res) => {
         return res.status(500).json({ message: 'Error uploading tree data' });
     }
 };
+
+
+
+export const gettree = async (req, res) => {
+    try {
+        const { sno } = req.user; 
+        if (!sno) {
+            return res.status(400).json({ error: "User identifier (sno) is required" });
+        }
+        const { data, error } = await supabase
+            .from('tree')
+            .select('*') 
+            .eq('sno', sno); 
+
+        if (error) {
+            console.error("Error fetching tree data:", error);
+            return res.status(500).json({ error: "Failed to fetch tree data" });
+        }
+
+        return res.status(200).json(data);
+
+    } catch (err) {
+        console.error("Unexpected error:", err);
+        return res.status(500).json({ error: "Unexpected server error" });
+    }
+};

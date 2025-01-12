@@ -6,19 +6,20 @@ import { predictSpecies } from "../hooks/hooks";
 import { api1 } from "../services/api";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import Popover from "./popover";
 
 export default function TreeUploader() {
     const [image, setImage] = useState(null);
     const [imageName, setImageName] = useState("");
     const [imageUrl, setImageUrl] = useState("");
     const [species, setSpecies] = useState("");
-    const [location, setLocation] = useState(null); // State for storing the location
-    const [date, setDate] = useState(""); // State for storing selected date
-    const [treeName, setTreeName] = useState(""); // State for storing tree name
-    const [climate, setClimate] = useState(""); // State for storing climate type
-    const [soilType, setSoilType] = useState(""); // State for storing soil type
-    const [description, setDescription] = useState(""); // State for storing description
+    const [location, setLocation] = useState(null); 
+    const [date, setDate] = useState(""); 
+    const [treeName, setTreeName] = useState(""); 
+    const [climate, setClimate] = useState(""); 
+    const [soilType, setSoilType] = useState(""); 
+    const [description, setDescription] = useState(""); 
+    const [showPopover, setShowPopover] = useState(false); 
 
     const handleImageUpload = async () => {
         if (!image) {
@@ -27,11 +28,11 @@ export default function TreeUploader() {
         }
 
         try {
-            // Compress the image
+            
             const options = { maxSizeMB: 1, maxWidthOrHeight: 1024, useWebWorker: true };
             const compressedFile = await imageCompression(image, options);
 
-            // Convert to Base64
+           
             const reader = new FileReader();
             reader.onload = async () => {
                 const base64 = reader.result.split(",")[1];
@@ -40,7 +41,7 @@ export default function TreeUploader() {
                         file: base64,
                         fileName: compressedFile.name,
                     });
-                    setImageUrl(response.data.url); // Set the uploaded image URL
+                    setImageUrl(response.data.url); 
                     alert("Image uploaded successfully!");
                 } catch (error) {
                     console.error("Error uploading image:", error);
@@ -54,19 +55,19 @@ export default function TreeUploader() {
         }
     };
 
-    // Predict species once the image URL is set
+    
     useEffect(() => {
         if (imageUrl) {
             (async () => {
                 try {
                     const prediction = await predictSpecies(imageUrl);
                     if (typeof prediction === "object" && prediction.species) {
-                        setSpecies(prediction.species); // Extract species property
+                        setSpecies(prediction.species); 
                     } else {
-                        setSpecies(prediction); // Fallback if the response is a string
+                        setSpecies(prediction); 
                     }
 
-                    // Fetch current location after the species is predicted
+                    
                     if (navigator.geolocation) {
                         navigator.geolocation.getCurrentPosition(
                             (position) => {
@@ -89,7 +90,7 @@ export default function TreeUploader() {
         }
     }, [imageUrl]);
 
-    // Handle axios request to send data
+    
     const handleDataSubmit = async () => {
         const treeData = {
             species,
@@ -106,9 +107,9 @@ export default function TreeUploader() {
             const response = await api1.post("/tree/uploadtree", treeData);
             alert("Data submitted successfully!");
             console.log("Server Response:", response.data);
-            const{points}=response.data;
-            const earnedpoints=points.earned;
-            const co2=points.earned/100;
+            const { points } = response.data;
+            const earnedpoints = points.earned;
+            const co2 = points.earned / 100;
             toast.success(`Total Points Earned: ${earnedpoints}, Total CO2 Sequestrated: ${co2} kg`);
         } catch (error) {
             console.error("Error submitting data:", error);
@@ -154,9 +155,18 @@ export default function TreeUploader() {
                 </p>
             )}
 
+            {/* Display Popover when species is detected */}
+            {species && !showPopover && (
+                <button className="popybutton" onClick={() => setShowPopover(true)}>Show Species Information</button>
+            )}
+
+            {showPopover && species && (
+                <Popover species={species} onClose={() => setShowPopover(false)} />
+            )}
+
             {/* Inputs for additional information */}
             {location && species && (
-                <div className="input-container" >
+                <div className="input-container">
                     <div className="input-group">
                         <label htmlFor="date">Date:</label>
                         <input
@@ -211,11 +221,11 @@ export default function TreeUploader() {
                     </div>
 
                     <button className="submit-button" onClick={handleDataSubmit}>
-                        Submit Data
+                        Submit
                     </button>
                 </div>
-
             )}
+
             <ToastContainer />
         </div>
     );
