@@ -13,7 +13,7 @@ body {
 
 .left-panel {
   flex: 1;
-  background: linear-gradient(180deg, #5fe8e8, #ddabf6);
+  background-image: url("");
   color: white;
   padding: 2rem;
   display: flex;

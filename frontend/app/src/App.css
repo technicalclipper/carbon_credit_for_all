@@ -5,6 +5,12 @@ body {
   padding: 0;
 }
 
+/* Set custom cursor globally */
+* {
+  cursor: url('../public/images/pointer.png'), auto;
+}
+
+
 .container {
   display: flex;
   height: 100vh;
@@ -745,4 +751,48 @@ textarea {
   color: white;
   height: 50px;
   margin-bottom: 10px;
+}
+.logintree{
+  height:500px;
+  width:500px;
+}
+.lhead{
+  font-weight: 400;
+  font-size: 50px;
+  margin-left: 20px;
+}
+ .anim{
+  background-color: #000000;
+  border-radius: 50px;
+  width:600px;
+
+} 
+
+@keyframes typing {
+  from {
+    width: 0; 
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes cursor {
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: transparent; 
+  }
+}
+h1.logo-text {
+
+  font-size: 3rem;
+  display: inline-block;
+  white-space: nowrap; 
+  overflow: hidden;
+  border-right: 0.1em solid black; 
+  animation: typing 2s steps(52) 1s forwards, cursor 0.4s step-end 2s infinite alternate; 
+  color:black;
+
 }

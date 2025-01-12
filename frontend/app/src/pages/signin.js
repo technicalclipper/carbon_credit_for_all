@@ -19,8 +19,13 @@ function Signin() {
   return (
     <div className="container">
       <div className="left-panel">
-        <div className="logo">🌴</div>
+        <div className="anim">
+        <div className="logo lhead">🌴Carbon Credit for all</div>
+        </div>
+        <div >
         <h1 className="logo-text">Platform for Personal Carbon Credits.</h1>
+        </div>
+        
       </div>
       <div className="right-panel">
         <div className="form">
