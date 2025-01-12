@@ -53,7 +53,7 @@ export const uploadtree = async (req, res) => {
 
 export const gettree = async (req, res) => {
     try {
-        const { sno } = req.user; 
+        const sno = req.user.sno; 
         if (!sno) {
             return res.status(400).json({ error: "User identifier (sno) is required" });
         }

@@ -10,6 +10,8 @@ import Leaderboard from "./pages/leaderboard.js";
 import Bgimage from "./components/bg.js";
 import Tree from "./pages/tree.js";
 import TreeUploader from "./components/uploadtree.js";
+import Marketplace from "./pages/marketplace.js";
+import Profile from "./pages/profile.js";
 
 function App() {
   const location = useLocation(); // Get the current route path
@@ -27,7 +29,8 @@ function App() {
           <Route path="/login" element={<Signin />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/tree" element={<Tree />} />
-          <Route path="/uploadtree" element={<TreeUploader />} />
+          <Route path="/marketplace" element={<Marketplace/>} />
+          <Route path="/profile" element={<Profile/>} />
           
 
         </Routes>

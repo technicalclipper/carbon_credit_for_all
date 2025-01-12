@@ -30,10 +30,10 @@ function Header() {
         <img src="images/trophy.png" alt="Leaderboard" />
         <p>Leaderboard</p>
       </div></Link>
-      <div className="navbar-component">
+      <Link to="/marketplace"><div className="navbar-component">
         <img src="images/sun.png" alt="Marketplace" />
         <p>Marketplace</p>
-      </div>
+      </div></Link>
 
       {!isAuthenticated ? (
         <Link to="/login">
@@ -42,7 +42,7 @@ function Header() {
           </div>
         </Link>
       ) : (
-        <div className="navbar-component profile-container">
+        <Link to="/profile"><div className="navbar-component profile-container">
           <img
             src="images/person.png"
             alt="Profile"
@@ -58,8 +58,10 @@ function Header() {
             </div>
           )}
         </div>
+        </Link>
       )}
     </div>
+    
   );
 }
 

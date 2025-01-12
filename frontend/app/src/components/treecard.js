@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
-import { AuthContext } from "../contexts/authContext";
-import { useContext, useState } from "react";
+import React from "react";
 
-export default function Treecard(){
-    return(<div className="outertreecard">
-        <img className="treecardimage"  src="images/MangoTree.jpg"/>
-        <div className="innertreecarddesc">
-            <div>BigD</div>
-            <div>monday</div>
-            <div>species</div>
+export default function Treecard(props) {
+    return (
+        <div className="outertreecard">
+            <img className="treecardimage" src={props.imageurl} alt={props.treename} />
+            <div className="innertreecarddesc">
+                <div>{props.treename}</div>
+                <div>{props.species}</div>
+                <div>{props.date}</div>
+                <div>{props.co2} kg/year</div>
+            </div>
         </div>
-    </div>
-    )
+    );
 }

@@ -38,12 +38,14 @@ function Leaderboard() {
     return <div>Loading user data...</div>;
   }
 
+  
+
   return (
     <div>
       <div className="leaderboard-container">
         <div className="user-card">
           <div className="profile-pic"></div>
-          <h2 className="username">{user.fullname}</h2>
+          <h2 className="username" style={{color: "#000000"}}>{user.fullname}</h2>
           <p className="rank" id="myrank">
             RANK: #41
           </p>
